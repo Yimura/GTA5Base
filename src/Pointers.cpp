@@ -37,7 +37,7 @@ namespace Spyral
 
         scanner.Add("ScriptVM/ScriptGlobals", "48 85 FF 48 89 1D", [](AddressHelper addr)
         {
-            Globals = addr.Sub(10).Relative().As<std::int64_t**>();
+            Globals = addr.Sub(12).Relative().As<std::int64_t**>();
             ScriptVM = addr.Sub(4).Relative().As<void**>();
             
             return true;
