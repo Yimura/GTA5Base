@@ -28,6 +28,13 @@ namespace Spyral
             return true;
         });
 
+        scanner.Add("ScriptGlobals", "48 8D 15 ? ? ? ? 4C 8B C0 E8 ? ? ? ? 48 85 FF 48 89 1D", [](AddressHelper addr)
+        {
+            Globals = addr.Add(3).Relative().As<std::int64_t**>();
+
+            return true;
+        });
+
 		scanner.Scan();
 
         if (hwnd = FindWindowA("grcWindow", nullptr); !hwnd)
