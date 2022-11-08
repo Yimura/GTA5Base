@@ -28,10 +28,18 @@ namespace Spyral
             return true;
         });
 
-        scanner.Add("ScriptGlobals", "48 8D 15 ? ? ? ? 4C 8B C0 E8 ? ? ? ? 48 85 FF 48 89 1D", [](AddressHelper addr)
+        scanner.Add("ScriptPrograms", "48 8B 1D ? ? ? ? 41 83 F8 FF", [](AddressHelper addr)
         {
-            Globals = addr.Add(3).Relative().As<std::int64_t**>();
 
+
+            return true;
+        });
+
+        scanner.Add("ScriptVM/ScriptGlobals", "48 85 FF 48 89 1D", [](AddressHelper addr)
+        {
+            Globals = addr.Sub(10).Relative().As<std::int64_t**>();
+            ScriptVM = addr.Sub(4).Relative().As<void**>();
+            
             return true;
         });
 

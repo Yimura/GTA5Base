@@ -10,6 +10,7 @@ add_definitions(-DCMAKE_EXPORT_COMPILE_COMMANDS=1)
 
 message("Fetching Modules")
 include(cmake/g3log.cmake)
+include(cmake/gtav-classes.cmake)
 include(cmake/imgui.cmake)
 include(cmake/minhook.cmake)
 
@@ -30,11 +31,14 @@ add_compile_definitions(${PROJECT_NAME}
 
 target_include_directories(${PROJECT_NAME} PRIVATE
     "${SRC_DIR}"
+    "${gtav_classes_SOURCE_DIR}"
     "${minhook_SOURCE_DIR}/include"
     "${imgui_SOURCE_DIR}")
 
 target_precompile_headers(${PROJECT_NAME} PRIVATE "${SRC_DIR}/common.hpp")
 target_link_libraries(${PROJECT_NAME} PRIVATE g3log imgui minhook)
+
+set_property(TARGET ${PROJECT_NAME} PROPERTY COMPILE_WARNING_AS_ERROR ON)
 
 if (MSVC)
     add_compile_options(/W4 /WX)
