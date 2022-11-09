@@ -6,7 +6,7 @@ message("Setting up GTAV-Classes")
 FetchContent_Declare(
     ${LIB_NAME}
     GIT_REPOSITORY https://github.com/Yimura/GTAV-Classes.git
-    GIT_TAG        07080ad71a8a98f549e8ac78f09dacd4cfd22ad6
+    GIT_TAG        fa51149467114ae0d947c78a16b277e21be13e29
     GIT_PROGRESS TRUE
     CONFIGURE_COMMAND ""
     BUILD_COMMAND ""
