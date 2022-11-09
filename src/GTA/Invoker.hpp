@@ -7,7 +7,12 @@ namespace Spyral
 {
     class Invoker
     {
-    public:        
+    private:
+        Invoker() = default;
+
+    public:
+        ~Invoker() = default;
+
         static void CacheHandlers()
         { GetInstance().CacheHandlersImpl(); }
         static bool HandlersCached()
