@@ -16,6 +16,6 @@ namespace Spyral
      */
     extern constexpr long_joaat_t LongJoaat(const std::string_view b);
 
-    extern constexpr joaat_t operator ""_J(const char* s, std::size_t n);
-    extern constexpr long_joaat_t operator ""_LJ(const char* s, std::size_t n);
+    extern consteval joaat_t operator ""_J(const char* s, std::size_t n);
+    extern consteval long_joaat_t operator ""_LJ(const char* s, std::size_t n);
 }

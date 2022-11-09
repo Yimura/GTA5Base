@@ -49,12 +49,12 @@ namespace Spyral
         return result;
     }
 
-    constexpr joaat_t operator ""_J(const char* s, std::size_t n)
+    consteval joaat_t operator ""_J(const char* s, std::size_t n)
     {
         return Joaat(std::string(s, n));
     }
 
-    constexpr long_joaat_t operator ""_LJ(const char* s, std::size_t n)
+    consteval long_joaat_t operator ""_LJ(const char* s, std::size_t n)
     {
         return LongJoaat(std::string(s, n));
     }
