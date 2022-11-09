@@ -11,6 +11,7 @@ namespace Spyral
         swapChain->Hook(SwapChain::VMTPresentIdx, (void*)SwapChain::Present);
         swapChain->Hook(SwapChain::VMTResizeBuffersIdx, (void*)SwapChain::ResizeBuffers);
         AddHook(std::move(swapChain));
+        AddHook(std::make_unique<DetourHook>("ScriptVM", (void*)Pointers::ScriptVM, (void*)GTA::ScriptVM));
         AddHook(std::make_unique<DetourHook>("WndProc", (void*)Pointers::WndProc, (void*)Window::WndProc));
     }
 

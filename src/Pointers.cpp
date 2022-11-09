@@ -2,6 +2,9 @@
 #include "Memory/ModuleMgr.hpp"
 #include "Memory/PatternScanner.hpp"
 
+#include "script/scrProgramTable.hpp"
+#include "script/scrNativeRegistrationTable.hpp"
+
 namespace Spyral
 {
     void Pointers::Destroy()
@@ -30,7 +33,22 @@ namespace Spyral
 
         scanner.Add("ScriptPrograms", "48 8B 1D ? ? ? ? 41 83 F8 FF", [](AddressHelper addr)
         {
+            ScriptProgramTable = addr.Add(3).Relative().As<rage::scrProgramTable*>();
 
+            return true;
+        });
+
+        scanner.Add("NativeRegistrationTable/GetNativeHandler", "48 8D 0D ? ? ? ? 48 8B 14 FA E8 ? ? ? ? 48 85 C0 75 0A", [](AddressHelper addr)
+        {
+            NativeRegistrationTable = addr.Add(3).Relative().As<rage::scrNativeRegistrationTable*>();
+			GetNativeHandler = addr.Add(12).Relative().As<decltype(GetNativeHandler)>();
+
+            return true;
+        });
+
+        scanner.Add("FixVectors", "83 79 18 00 48 8B D1 74 4A FF 4A 18 48 63 4A 18 48 8D 41 04 48 8B 4C CA", [](AddressHelper addr)
+        {
+            FixVectors = addr.As<decltype(FixVectors)>();
 
             return true;
         });

@@ -1,5 +1,6 @@
 #include "common.hpp"
 #include "FileMgr/FileMgr.hpp"
+#include "GTA/Invoker.hpp"
 #include "GUI/GUI.hpp"
 #include "Memory/ModuleMgr.hpp"
 #include "Hooking.hpp"
@@ -20,6 +21,7 @@ namespace Spyral
 		ModuleMgr::Init();
 
 		Pointers::Init();
+		Invoker::CacheHandlers(); // has to be called right after pointers
 
 		Renderer::Init();
 		GUI::Init();

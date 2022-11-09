@@ -2,11 +2,6 @@
 
 namespace Spyral
 {
-    constexpr char ToLower(char c)
-    {
-        return c >= 'A' && c <= 'Z' ? c | 1 << 5 : c;
-    }
-
     /**
      * @brief Generate a 32bit hash from a string
      */
@@ -47,15 +42,5 @@ namespace Spyral
         result += (result << 30);
 
         return result;
-    }
-
-    consteval joaat_t operator ""_J(const char* s, std::size_t n)
-    {
-        return Joaat(std::string(s, n));
-    }
-
-    consteval long_joaat_t operator ""_LJ(const char* s, std::size_t n)
-    {
-        return LongJoaat(std::string(s, n));
     }
 }
