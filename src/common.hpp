@@ -12,6 +12,7 @@
 #include <memory>
 #include <thread>
 
+#include <array>
 #include <map>
 #include <ranges>
 
