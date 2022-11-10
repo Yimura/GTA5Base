@@ -1,6 +1,6 @@
 #include "../Hooks.hpp"
 #include "../../Util/Joaat.hpp"
-#include "../../GTA/Natives.hpp"
+#include "../../GTA/Invoker/Natives.hpp"
 #include "../../GUI/GUI.hpp"
 
 namespace Spyral

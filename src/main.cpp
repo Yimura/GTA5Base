@@ -1,6 +1,6 @@
 #include "common.hpp"
 #include "FileMgr/FileMgr.hpp"
-#include "GTA/Invoker.hpp"
+#include "GTA/Invoker/Invoker.hpp"
 #include "GUI/GUI.hpp"
 #include "Memory/ModuleMgr.hpp"
 #include "Hooking.hpp"

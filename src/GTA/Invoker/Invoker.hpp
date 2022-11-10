@@ -1,6 +1,6 @@
 #pragma once
 #include "common.hpp"
-#include "fwdec.hpp"
+#include "../fwdec.hpp"
 #include "script/scrNativeHandler.hpp"
 
 namespace Spyral
