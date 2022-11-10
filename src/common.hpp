@@ -23,6 +23,7 @@
 #include <imgui.h>
 
 #include "Logger/Logger.hpp"
+#include "Util/Joaat.hpp"
 
 namespace Spyral
 {
