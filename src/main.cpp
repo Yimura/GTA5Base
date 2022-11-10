@@ -1,6 +1,7 @@
 #include "common.hpp"
 #include "FileMgr/FileMgr.hpp"
 #include "GTA/Invoker/Invoker.hpp"
+#include "GTA/ScriptMgr.hpp"
 #include "GUI/GUI.hpp"
 #include "Memory/ModuleMgr.hpp"
 #include "Hooking.hpp"
@@ -25,6 +26,10 @@ namespace Spyral
 
 		Renderer::Init();
 		GUI::Init();
+
+		ScriptMgr::AddScript(new Script([]{
+			// invoke native here
+		}));
 
 		Hooking::Init();
 
