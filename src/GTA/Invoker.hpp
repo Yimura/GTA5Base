@@ -78,7 +78,7 @@ inline ReturnType Invoke(rage::scrNativeHash hash, Args&& ...args)
     (Invoker::PushArg(std::forward<Args>(args)), ...);
     Invoker::EndCall(hash);
 
-    if constexpr (!std::is_same_v<ReturnType, void>)
+    if constexpr (!std::is_void_v<ReturnType>)
     {
         return Invoker::GetReturnValue<ReturnType>();
     }
