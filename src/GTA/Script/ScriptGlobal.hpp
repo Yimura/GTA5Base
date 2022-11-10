@@ -50,7 +50,7 @@ namespace Spyral
         }
 
     private:
-        std::size_t m_index;
+        std::size_t m_Index;
 
     };
 }

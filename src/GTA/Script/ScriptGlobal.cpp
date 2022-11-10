@@ -4,23 +4,23 @@
 namespace Spyral
 {
     ScriptGlobal::ScriptGlobal(std::size_t index)
-        : m_index(index)
+        : m_Index(index)
     {
         
     }
 
     ScriptGlobal ScriptGlobal::Add(std::ptrdiff_t offset)
     {
-        return m_index + offset;
+        return m_Index + offset;
     }
 
     ScriptGlobal ScriptGlobal::At(std::ptrdiff_t idx, std::size_t size)
     {
-        return m_index + 1 + (idx * size);
+        return m_Index + 1 + (idx * size);
     }
 
     void* ScriptGlobal::Address() const
     {
-        return Pointers::Globals[m_index >> 0x12 & 0x3F] + (m_index & 0x3FFFF);
+        return Pointers::Globals[m_Index >> 0x12 & 0x3F] + (m_Index & 0x3FFFF);
     }
 }
